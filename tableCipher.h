@@ -13,6 +13,6 @@ private:
 public:
     tableCipher()=delete;
     tableCipher(const int& key) :key1(key) {};
-    std::wstring encrypt(const std::wstring& open_text); 
-    std::wstring decrypt(const std::wstring& cipher_text); 
+    std::wstring encrypt(std::wstring& open_text); 
+    std::wstring decrypt(std::wstring& cipher_text); 
 };
