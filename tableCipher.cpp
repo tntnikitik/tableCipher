@@ -18,7 +18,7 @@ std::wstring tableCipher::encrypt(std::wstring& open_text)
     for (int i = key1; i > 0; i--) {
         for (int j = 0; j < nstrok; j++) {
             index = i+key1*j;
-            wcout<<index<<endl;
+            //wcout<<index<<endl;
             if (index-1 < dl) {
                 tabl[x] = open_text[index-1];
                 x++;
