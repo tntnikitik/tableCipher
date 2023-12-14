@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['main_17',['main',['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main.cpp']]]
+  ['is_5flow_5frus_22',['is_low_rus',['../classtableCipher.html#ae251a0efae96bb815fdd7685308fa38c',1,'tableCipher']]],
+  ['is_5frus_23',['is_rus',['../classtableCipher.html#a51e119ef14658626a9b10aef381704ec',1,'tableCipher']]]
 ];
