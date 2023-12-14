@@ -2,9 +2,44 @@
 #include <string>
 
 using namespace std;
+std::wstring tableCipher::toValid(std::wstring& s)
+{
+    using convert_type = std::codecvt_utf8<wchar_t>;
+    std::wstring_convert<convert_type, wchar_t> converter;
 
+    if (s.empty())
+        throw cipher_error("Empty text");
+
+    std::wstring tmp(s);
+    std::string st = converter.to_bytes(s);
+    for (auto & c:tmp) {
+        if (!is_rus(c))
+            throw cipher_error(("Text has invalid symbols: ") +st);
+        if (is_low_rus(c)!=-1)
+            c = numAlpha[is_low_rus(c)];
+    }
+    return tmp;
+}
+bool tableCipher::is_rus(wchar_t wch)
+{
+    std::wstring alf=lnumAlpha+numAlpha;
+    for (uint i=0; i<alf.length(); i++) {
+        if (wch == alf[i])
+            return true;
+    }
+    return false;
+}
+int tableCipher::is_low_rus(wchar_t wch)
+{
+    for (uint i=0; i<lnumAlpha.length(); i++) {
+        if (wch == lnumAlpha[i])
+            return i;
+    }
+    return -1;
+}
 std::wstring tableCipher::encrypt(std::wstring& open_text)
 {
+
     wstring tabl = open_text;
     int dl, nstrok, index, x;
     while (tabl.size() % key1 != 0) {
